@@ -7,7 +7,7 @@ async function sendDataToServer(expObj) {
 
     try {
         const devUrl = 'http://localhost:3000/';
-        const serverUrl = 'https://emotional-norms-server.vercel.app//data/sendDataToS3';
+        const serverUrl = 'https://express-backend-exp.vercel.app/data/sendDataToS3';
         const response = await fetch(serverUrl, {
             method: 'POST',
             headers: {
