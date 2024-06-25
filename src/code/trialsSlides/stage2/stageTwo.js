@@ -5,7 +5,7 @@ import { conf } from "../../ExperimentClasses/timeTable.js";
 import { HTMLJson as HtmlJ } from "../textAndHtml.js";
 import { calculateFeedback } from "./calculateFeedback.js";
 import { otherFeedbackScreen } from "./feedbackScreenOther.js";
-const FLAGS_DIR = `./data/simbols/`;
+const FLAGS_DIR = `./src/data/simbols/`;
 const STD = "Std. Deviation";
 const ASKED_ABOUT_PARTICIPANT = 0;
 const PROCEDURE = "ExpBlocProc";
@@ -25,7 +25,7 @@ var otherCond = function (stageObj, expObj) {
         type: "html-slider-response-modified",
         stimulus: function () {
           return `<div style="margin: auto;">
-                            <img src="data/stimuli/${stageObj.pic_num}.jpg" style="width: 500px;" />
+                            <img src="./src/data/stimuli/${stageObj.pic_num}.jpg" style="width: 500px;" />
                         </div>`;
         },
 

@@ -6,7 +6,7 @@ import {
   adjustHtmlStage3Rate,
 } from "../../htmlSetters/onLoadFuncs.js";
 import { conf } from "../../ExperimentClasses/timeTable.js";
-const FLAGS_DIR = `./data/simbols/`;
+const FLAGS_DIR = `./src/data/simbols/`;
 
 var Stage3PresentAverage = function (stageObj, expObj) {
   const response = HtmlJ.averageResponseStage3(stageObj.name);

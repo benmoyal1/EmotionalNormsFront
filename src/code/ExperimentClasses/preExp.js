@@ -55,13 +55,12 @@ class preExp {
         this.stage2ATrielNum + this.stage2BTrielNum
       ),
     };
-
     for (var i = 0; i < this.stage2ATrielNum; i++) {
       stage2Objects.other[i].name = this.names[i];
     }
     var Stage2Timeline = [];
     const stage2 = 2;
-    for (var i = 0; i < stage2Objects.self.length; i++) {
+    for (var i = 0; i < stage2Objects.other.length; i++) {
       Stage2Timeline.push(
         firstCondSlide(stage2Objects.self[i], this, stage2),
         otherCond(stage2Objects.other[i], this)

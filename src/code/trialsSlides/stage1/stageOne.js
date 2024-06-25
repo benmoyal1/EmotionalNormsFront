@@ -26,7 +26,7 @@ var firstCondSlide = function (stageObj, expObj, stage) {
         stimulus: function () {
           return (
             '<div style="margin: auto;  width: 80%; text-align: center; overflow: hidden;">' +
-            '<img src="data/stimuli/' +
+            '<img src="./src/data/stimuli/' +
             picNum +
             '.jpg" style="max-width: 100%; max-height: 100%;" />' +
             "</div>"

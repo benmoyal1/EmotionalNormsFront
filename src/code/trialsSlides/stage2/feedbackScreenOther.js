@@ -2,7 +2,7 @@ import { adjustHtmlFeedback} from "../../htmlSetters/onLoadFuncs.js";
 
 import { HTMLJson as HtmlJ } from "../textAndHtml.js";
 import { conf } from "../../ExperimentClasses/timeTable.js";
-const FLAG_DIR = `./data/simbols/`;
+const FLAG_DIR = `./src/data/simbols/`;
 
 var otherFeedbackScreen = function(stageObj,expObj,theyRateText,otherCalc){
     const flagPath = FLAG_DIR + expObj.participantFlag;
@@ -11,7 +11,7 @@ var otherFeedbackScreen = function(stageObj,expObj,theyRateText,otherCalc){
             type: 'html-slider-response-modified',
             stimulus: function () {
                 return '<div style="margin: auto; width: 90%; text-align: center;">' +
-                    '<img src="data/stimuli/' + stageObj.pic_num + '.jpg" style="max-width: 90%; max-height:90%;" />' +
+                    '<img src="./src/data/stimuli/' + stageObj.pic_num + '.jpg" style="max-width: 90%; max-height:90%;" />' +
                     '</div>'
                 },
             on_load : adjustHtmlFeedback(expObj.gender,conf.responsePresentation),
