@@ -1,7 +1,7 @@
 async function getParticipantNum() {
     try {
         const devUrl = 'http://localhost:3000/';
-        const serverUrl = 'https://express-backend-exp.vercel.app/data/participantCounter';
+        const serverUrl = 'https://emotional-norms-server.vercel.app/data/participantCounter';
         const response = await fetch(serverUrl, {
             method: 'GET',
             headers: {
