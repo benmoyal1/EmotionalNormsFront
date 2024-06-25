@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="./src/data/simbols/heartbeat-icon.png" type="image/png" />
+    <title>Emotional Norms Maya Tamir</title>
+    <script src="./jspsych-6.1.0/jspsych.js"></script>
+    <script src="./jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+    <script src="./jspsych-6.1.0/plugins/jspsych-html-button-response.js"></script>
+    <script src="./jspsych-6.1.0/plugins/jspsych-html-slider-response-modified.js"></script>
+    <script src="./jspsych-6.1.0/plugins/jspsych-call-function.js"></script>
+    <script src="./jspsych-6.1.0/plugins/jspsych-html-slider-response.js"></script>
+    <script src="./jspsych-6.1.0/plugins/jspsych-fullscreen.js"></script>
+    <link rel="stylesheet" href="./jspsych-6.1.0/css/jspsych.css" />
+    <link rel="stylesheet" href="./src/css/questioneir.css" />
+  </head>
+  <body dir="ltr">
+    <form id="genderForm" class="questionnaire-form">
+      <div class="question">
+        <label for="gender">?איך היית רוצה שיתייחסו אליך בניסוי</label>
+      </div>
+      <div class="options">
+        <input type="radio" id="male" name="gender" value="male" />
+        <label for="male">בלשון זכר</label>
+        <input type="radio" id="female" name="gender" value="female" />
+        <label for="female">בלשון נקבה</label>
+      </div>
+      <div class="ageQuestion">
+        <input type="number" id="age" name="age" />
+        <label for="age">:גיל</label>
+      </div>
+      <input type="submit" value="בחר\י" class="submit-button" />
+    </form>
+    <script type = 'module' src="./src/code/main.js"></script>
+  </body>
+</html>
+
+
+
+<!-- 
+fix the 3rd stage functions 
+make changes on the opening slide
+
+-->
