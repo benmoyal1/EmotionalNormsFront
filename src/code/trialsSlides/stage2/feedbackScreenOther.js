@@ -9,11 +9,7 @@ var otherFeedbackScreen = function(stageObj,expObj,theyRateText,otherCalc){
     const resultPresentedHTML = HtmlJ.presentOtherResponse(otherCalc,flagPath,theyRateText);  
     return {
             type: 'html-slider-response-modified',
-            stimulus: function () {
-                return '<div style="margin: auto; width: 90%; text-align: center;">' +
-                    '<img src="./src/data/stimuli/' + stageObj.pic_num + '.jpg" style="max-width: 90%; max-height:90%;" />' +
-                    '</div>'
-                },
+            stimulus:HtmlJ.stimulusImg(stageObj.pic_num),
             on_load : adjustHtmlFeedback(expObj.gender,conf.responsePresentation),
             blocks: function(){              
                 return [

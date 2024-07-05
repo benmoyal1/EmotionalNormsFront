@@ -9,6 +9,7 @@ import {
 import { firstCondSlide } from "../trialsSlides/stage1/stageOne.js";
 import { otherCond } from "../trialsSlides/stage2/stageTwo.js";
 import { calculateBaselineAndDifferece } from "../trialsSlides/stage1/calcBaseline.js";
+import {generateSurvey} from "../trialsSlides/survey/generateSurvey.js";
 class preExp {
   constructor() {
     this.stage1TrielNum = conf.minSlides ? 2 : 10;
@@ -22,6 +23,9 @@ class preExp {
     this.flagPath = "";
     this.condition = 0;
     this.trialIndex = 1;
+  }
+  initDemographicSurvey(){
+    this.timeline.push(...generateSurvey());
   }
   initStage1Instructions(gender) {
     const openeing = 0;

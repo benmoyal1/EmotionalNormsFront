@@ -80,6 +80,15 @@ const HTMLJson = {
                 </div>
             </div>
         </div>`;
+  },
+  stimulusImg : (num) => {
+    return (
+      '<div style="margin: auto;  width: 80%; text-align: center; overflow: hidden;">' +
+      '<img src="./src/data/stimuli/' +
+      num +
+      '.jpg" style="max-width: 100%; max-height: 100%;" />' +
+      "</div>"
+    );
   }
 };
 

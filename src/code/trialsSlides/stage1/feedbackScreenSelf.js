@@ -5,11 +5,7 @@ import { conf } from "../../ExperimentClasses/timeTable.js";
 var feedbackScreen = function(picNum,gender,text){
     return {
             type: 'html-slider-response-modified',
-            stimulus: function () {
-            return '<div style="margin: auto; width: 90%; text-align: center;">' +
-                '<img src="./src/data/stimuli/' + picNum + '.jpg" style="max-width: 90%; max-height:90%;" />' +
-                '</div>'
-            },
+            stimulus: HtmlJ.stimulusImg(picNum),
             on_load : adjustHtmlFeedback(gender),
             blocks: function(){              
                 var expValues = jsPsych.data.get().values()

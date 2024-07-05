@@ -9,6 +9,7 @@ class Experiment extends preExp {
     this.baselineAverage = 0;
     this.experimentData = [];
     this.initParticipantAttributes(age, gender, kv);
+    this.initDemographicSurvey();
     this.initStage1();
     this.initStage2();
     this.initStage3();

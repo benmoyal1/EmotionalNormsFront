@@ -14,7 +14,6 @@ import { HTMLJson as HtmlJ } from "../textAndHtml.js";
  * @returns
  */
 var firstCondSlide = function (stageObj, expObj, stage) {
-  var picNum = stageObj.pic_num;
   var ASKED_ABOUT_PARTICIPANT = 1;
   var procedure = stage == 1 ? "trainProc" : "ExpBlocProc";
 
@@ -23,15 +22,7 @@ var firstCondSlide = function (stageObj, expObj, stage) {
       fixation,
       {
         type: "html-slider-response-modified",
-        stimulus: function () {
-          return (
-            '<div style="margin: auto;  width: 80%; text-align: center; overflow: hidden;">' +
-            '<img src="./src/data/stimuli/' +
-            picNum +
-            '.jpg" style="max-width: 100%; max-height: 100%;" />' +
-            "</div>"
-          );
-        },
+        stimulus: HtmlJ.stimulusImg(stageObj.pic_num),
         on_load: adjustHtml(expObj.gender),
         blocks: [
           {
@@ -76,7 +67,7 @@ var firstCondSlide = function (stageObj, expObj, stage) {
         },
       },
       feedbackScreen(
-        picNum,
+        stageObj.pic_num,
         expObj.gender,
         textJ.thisIsYourResponseText(expObj.gender)
       ),

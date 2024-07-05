@@ -23,11 +23,7 @@ var otherCond = function (stageObj, expObj) {
       fixation,
       {
         type: "html-slider-response-modified",
-        stimulus: function () {
-          return `<div style="margin: auto;">
-                            <img src="./src/data/stimuli/${stageObj.pic_num}.jpg" style="width: 500px;" />
-                        </div>`;
-        },
+        stimulus: HtmlJ.stimulusImg(stageObj.pic_num),
 
         on_load: adjustHtml(expObj.gender),
         blocks: function () {
