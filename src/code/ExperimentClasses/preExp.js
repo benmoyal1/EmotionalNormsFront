@@ -25,7 +25,7 @@ class preExp {
     this.trialIndex = 1;
   }
   initDemographicSurvey(){
-    this.timeline.push(...generateSurvey());
+    this.timeline.push(...generateSurvey(this));
   }
   initStage1Instructions(gender) {
     const openeing = 0;

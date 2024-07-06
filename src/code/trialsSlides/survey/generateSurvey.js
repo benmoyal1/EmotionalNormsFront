@@ -1,20 +1,34 @@
 const alignHTMLRight = () => {
   let html = '<style id="jspsych-survey-multi-choice-css">';
   html +=
-  ".jspsych-survey-multi-choice-question { margin-top: 2em; margin-bottom: 2em; text-align: right; }" + // Align questions to the right
-  ".jspsych-survey-multi-choice-option { text-align: right; }" + // Align options to the right
-  ".jspsych-survey-multi-choice-text { direction: rtl; }" + // Set text direction to right-to-left
-  ".jspsych-survey-multi-choice-text span.required { color: darkred; }" + // Style required indicator
-  ".jspsych-survey-multi-choice-horizontal .jspsych-survey-multi-choice-text { text-align: center; }" + // Center text in horizontal layout
-  ".jspsych-survey-multi-choice-horizontal .jspsych-survey-multi-choice-option { display: inline-block; margin-left: 1em; margin-right: 1em; vertical-align: top; }" + // Style options in horizontal layout
-  "label.jspsych-survey-multi-choice-text input[type='radio'] { margin-right: 1em; }"; // Style radio buttons
+    ".jspsych-survey-multi-choice-question { margin-top: 2em; margin-bottom: 2em; text-align: right; }" + // Align questions to the right
+    ".jspsych-survey-multi-choice-option { text-align: right; }" + // Align options to the right
+    ".jspsych-survey-multi-choice-text { direction: rtl; }" + // Set text direction to right-to-left
+    ".jspsych-survey-multi-choice-text span.required { color: darkred; }" + // Style required indicator
+    ".jspsych-survey-multi-choice-horizontal .jspsych-survey-multi-choice-text { text-align: center; }" + // Center text in horizontal layout
+    ".jspsych-survey-multi-choice-horizontal .jspsych-survey-multi-choice-option { display: inline-block; margin-left: 1em; margin-right: 1em; vertical-align: top; }" + // Style options in horizontal layout
+    "label.jspsych-survey-multi-choice-text input[type='radio'] { margin-right: 1em; }"; // Style radio buttons
   html += "</style>";
-  
+
   // Inject the CSS into the document head
   document.head.insertAdjacentHTML("beforeend", html);
-  document.querySelector("#jspsych-survey-multi-choice-next").value = "לחצו כאן";
+  document.querySelector("#jspsych-survey-multi-choice-next").value =
+    "לחצו כאן";
 };
-const generateSurvey = () => {
+
+const addToQuestioneir = (expObj, data, questioneir) => {
+  const resp = JSON.parse(data.responses);
+  const Qstart = questioneir * 3;
+
+  let newResponse = {
+    [`Q${Qstart}`]: resp.Q0,
+    [`Q${Qstart + 1}`]: resp.Q1,
+    [`Q${Qstart + 2}`]: resp.Q2,
+  };
+
+  expObj.experimentData.push(newResponse);
+};
+const generateSurvey = (expObj) => {
   var survey_trial1 = {
     type: "survey-multi-choice",
     questions: [
@@ -54,6 +68,10 @@ const generateSurvey = () => {
     ],
 
     on_load: alignHTMLRight,
+    on_finish: function (data) {
+      const questioneir = 0;
+      addToQuestioneir(expObj, data, questioneir);
+    },
   };
   var survey_trial2 = {
     type: "survey-multi-choice",
@@ -90,6 +108,11 @@ const generateSurvey = () => {
     ],
 
     on_load: alignHTMLRight,
+    on_finish: (data) => {
+      const questioneir = 1;
+      addToQuestioneir(expObj, data, questioneir);
+      console.log(expObj.experimentData);
+    },
   };
   var likert_trial1 = {
     type: "survey-likert",
@@ -108,7 +131,7 @@ const generateSurvey = () => {
         prompt: "אני מרגיש שיש לי קשרים חזקים עם ישראלים אחרים.",
         labels: ["1", "2", "3", "4", "5", "6", "7"],
         required: true,
-      }
+      },
     ],
     scale_width: 600, // Adjust scale width as needed
     preamble:
@@ -116,6 +139,10 @@ const generateSurvey = () => {
 
     on_load: () => {
       document.querySelector("#jspsych-survey-likert-next").value = "לחצו כאן";
+    },
+    on_finish: (data) => {
+      const questioneir = 2;
+      addToQuestioneir(expObj, data, questioneir);
     },
   };
   var likert_trial2 = {
@@ -135,7 +162,7 @@ const generateSurvey = () => {
         prompt: "אני מרגיש בטוח במקומי בחברה הישראלית.",
         labels: ["1", "2", "3", "4", "5", "6", "7"],
         required: true,
-      }
+      },
     ],
     scale_width: 600, // Adjust scale width as needed
     preamble:
@@ -143,6 +170,10 @@ const generateSurvey = () => {
 
     on_load: () => {
       document.querySelector("#jspsych-survey-likert-next").value = "לחצו כאן";
+    },
+    on_finish: function (data) {
+      const questioneir = 3;
+      addToQuestioneir(expObj, data, questioneir);
     },
   };
   var likert_trial3 = {
@@ -171,8 +202,18 @@ const generateSurvey = () => {
     on_load: () => {
       document.querySelector("#jspsych-survey-likert-next").value = "לחצו כאן";
     },
+    on_finish: function (data) {
+      const questioneir = 4;
+      addToQuestioneir(expObj, data, questioneir);
+    },
   };
-  return [survey_trial1,survey_trial2,likert_trial1,likert_trial2,likert_trial3];
+  return [
+    survey_trial1,
+    survey_trial2,
+    likert_trial1,
+    likert_trial2,
+    likert_trial3,
+  ];
 };
 
 export { generateSurvey };

@@ -34,11 +34,10 @@ class Experiment extends preExp {
     this.oppositeFlagPath = `./data/simbols/${this.oppositeFlag}`;
     // [ jewMale,jewFemale,arabMale,arabFemale]
     var JewArabIndex = this.isJew ? 0 : 2;
-    var maleFemaleIndex = Number(this.gender == "female") 
+    var maleFemaleIndex = Number(this.gender == "female");
     this.names = namesByCond[JewArabIndex + maleFemaleIndex];
     this.otherNames =
       namesByCond[((JewArabIndex + 2) % 4) + Number(this.gender == "female")];
-
   }
   initStage1() {
     this.initStage1Instructions(this.gender);
@@ -54,14 +53,12 @@ class Experiment extends preExp {
     this.initStage3Trials();
     this.initLastSlide();
   }
-  dataToServer(){
-    sendDataToServer(this)
+  dataToServer() {
+    sendDataToServer(this);
   }
   startExp() {
     jsPsych.init({
       timeline: this.timeline,
-      on_finish: () => {
-      },
     });
   }
 }
