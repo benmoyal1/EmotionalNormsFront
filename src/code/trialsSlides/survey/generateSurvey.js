@@ -19,14 +19,9 @@ const alignHTMLRight = () => {
 const addToQuestioneir = (expObj, data, questioneir) => {
   const resp = JSON.parse(data.responses);
   const Qstart = questioneir * 3;
-
-  let newResponse = {
-    [`Q${Qstart}`]: resp.Q0,
-    [`Q${Qstart + 1}`]: resp.Q1,
-    [`Q${Qstart + 2}`]: resp.Q2,
-  };
-
-  expObj.experimentData.push(newResponse);
+  expObj.surveyData[`Q${Qstart}`] = resp.Q0;
+  expObj.surveyData[`Q${Qstart + 1}`] = resp.Q1;
+  expObj.surveyData[`Q${Qstart + 2}`] = resp.Q2;
 };
 const generateSurvey = (expObj) => {
   var survey_trial1 = {
@@ -111,7 +106,6 @@ const generateSurvey = (expObj) => {
     on_finish: (data) => {
       const questioneir = 1;
       addToQuestioneir(expObj, data, questioneir);
-      console.log(expObj.experimentData);
     },
   };
   var likert_trial1 = {
@@ -207,6 +201,7 @@ const generateSurvey = (expObj) => {
       addToQuestioneir(expObj, data, questioneir);
     },
   };
+  expObj.experimentData.push(expObj.surveyData);
   return [
     survey_trial1,
     survey_trial2,
