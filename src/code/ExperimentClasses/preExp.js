@@ -13,7 +13,7 @@ import {generateSurvey} from "../trialsSlides/survey/generateSurvey.js";
 class preExp {
   constructor() {
     this.stage1TrielNum = conf.minSlides ? 2 : 10;
-    this.stage2ATrielNum = conf.minSlides ? 2 : 10;  
+    this.stage2ATrielNum = conf.minSlides ? 2 : 35;  
     this.stage2BTrielNum = conf.minSlides ? 2 : 35; 
     this.stage3TrielNum = conf.minSlides ? 2 : 16;
 

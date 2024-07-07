@@ -1,5 +1,5 @@
-const FASTMODE = true;
-const MINSLIDES = false;
+const FASTMODE = false;
+const MINSLIDES = true;
 
 const expConfigure = {
   fastmode: FASTMODE,
