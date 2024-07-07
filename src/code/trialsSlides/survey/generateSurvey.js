@@ -24,6 +24,8 @@ const addToQuestioneir = (expObj, data, questioneir) => {
   expObj.surveyData[`Q${Qstart + 2}`] = resp.Q2;
 };
 const generateSurvey = (expObj) => {
+  expObj.surveyData.subject = expObj.subject;
+  expObj.surveyData.procedure = "demographics";
   var survey_trial1 = {
     type: "survey-multi-choice",
     questions: [
