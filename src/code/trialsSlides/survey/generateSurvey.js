@@ -47,6 +47,7 @@ const generateSurvey = (expObj) => {
   expObj.surveyData.procedure = "demographics";
   var survey_trial1 = {
     type: "survey-multi-choice",
+    preamble: "<h6>יש לגלול ולענות על כל השאלות*</h6>",
     questions: [
       {
         prompt: "סטטוס:",
