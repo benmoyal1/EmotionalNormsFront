@@ -1,9 +1,9 @@
 import Experiment from "./ExperimentClasses/Experiment.js";
 import { getParticipantNum } from "./api/dataFromServer.js";
 import { fullScreenAllBrowsers } from "./htmlSetters/focusAndScreen.js";
-// var kv = await getParticipantNum();
-// var exp = new Experiment(23, 'male', kv);
-// exp.startExp();
+var kv = await getParticipantNum();
+var exp = new Experiment(23, 'male', kv);
+exp.startExp();
 
 document
   .getElementById("genderForm")
