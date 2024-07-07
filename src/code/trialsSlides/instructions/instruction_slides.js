@@ -6,7 +6,7 @@ const generateSlides = (stage, gender) => {
       ? `./src/data/instructions/instructions_1_opening_page.png`
       : `./src/data/instructions/instructions_${adjusted_stage}_stage_${stage}_${gender}.png`;
       const stimulusContinue = `<div style="background-color: black; display: flex; justify-content: center; align-items: center; height: 100vh;">
-      <img src="${imgSrcContinue}" style="width:100%; height: auto; margin-top: 2.2cm;"></div>`;
+      <img src="${imgSrcContinue}" style="width:100%; height: auto; margin-top: 4cm;"></div>`;
   
 
   const imgSrcNoContinue =
