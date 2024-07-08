@@ -8,13 +8,13 @@ import { otherFeedbackScreen } from "./feedbackScreenOther.js";
 const FLAGS_DIR = `./src/data/simbols/`;
 const STD = "Std. Deviation";
 const ASKED_ABOUT_PARTICIPANT = 0;
-const PROCEDURE = "ExpBlocProc";
+const PROCEDURE = "Learning";
 
 var otherCond = function (stageObj, expObj) {
   var objName = stageObj.name;
   const flagPath = FLAGS_DIR + expObj.participantFlag;
 
-  var otherCalc = calculateFeedback(stageObj.Mean, stageObj[STD], expObj);
+  var othersResponse = calculateFeedback(stageObj.Mean, stageObj[STD], expObj);
   var howOtherFeltQu = HtmlJ.hthowDidTheyRespondHTML(stageObj.name, flagPath);
   var TheyRateText = HtmlJ.howTheyRatedHTML(objName, expObj.gender);
 
@@ -52,21 +52,23 @@ var otherCond = function (stageObj, expObj) {
           var trialResultObject = {
             Subject: expObj.subject,
             age: expObj.age,
-            condition: expObj.cond,
+            isJew: expObj.isJew ? 1 : 0,
+            extendedCondition: expObj.participantCategory,
+            isExtremeCondition: expObj.isExtremeCondition,
             gender: expObj.gender,
             imageNum: stageObj.pic_num,
             procedure: PROCEDURE,
             IsYouTrial: ASKED_ABOUT_PARTICIPANT,
-            otherCalc: otherCalc,
-            feedbackValue: trialResponse,
+            othersResponse: othersResponse,
+            response: trialResponse,
             baseline: expObj.baselineAverage,
-            Block: expObj.trialIndex++,
+            trialNum: expObj.trialIndex++,
             participantCategory: expObj.participantCategory,
           };
           expObj.experimentData.push(trialResultObject);
         },
       },
-      otherFeedbackScreen(stageObj, expObj, TheyRateText, otherCalc),
+      otherFeedbackScreen(stageObj, expObj, TheyRateText, othersResponse),
     ],
   };
 };

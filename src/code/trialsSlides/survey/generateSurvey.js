@@ -1,20 +1,3 @@
-// const alignHTMLRight = () => {
-//   let html = '<style id="jspsych-survey-multi-choice-css">';
-//   html +=
-//     ".jspsych-survey-multi-choice-question { margin-top: 2em; margin-bottom: 2em; text-align: right; }" + // Align questions to the right
-//     ".jspsych-survey-multi-choice-option { text-align: right; }" + // Align options to the right
-//     ".jspsych-survey-multi-choice-text { direction: rtl; }" + // Set text direction to right-to-left
-//     ".jspsych-survey-multi-choice-text span.required { color: darkred; }" + // Style required indicator
-//     ".jspsych-survey-multi-choice-horizontal .jspsych-survey-multi-choice-text { text-align: center; }" + // Center text in horizontal layout
-//     ".jspsych-survey-multi-choice-horizontal .jspsych-survey-multi-choice-option { display: inline-block; margin-left: 1em; margin-right: 1em; vertical-align: top; }" + // Style options in horizontal layout
-//     "label.jspsych-survey-multi-choice-text input[type='radio'] { margin-right: 1em; }"; // Style radio buttons
-//   html += "</style>";
-
-//   // Inject the CSS into the document head
-//   document.head.insertAdjacentHTML("beforeend", html);
-//   document.querySelector("#jspsych-survey-multi-choice-next").value =
-//     "לחצו כאן";
-// };
 const alignHTMLRight = () => {
   let html = '<style id="jspsych-survey-multi-choice-css">';
   html +=
@@ -34,7 +17,6 @@ const alignHTMLRight = () => {
   document.head.insertAdjacentHTML("beforeend", html);
   document.querySelector("#jspsych-survey-multi-choice-next").value = "לחצו כאן";
 };
-
 const addToQuestioneir = (expObj, data, questioneir) => {
   const resp = JSON.parse(data.responses);
   const Qstart = questioneir * 3;
@@ -43,7 +25,7 @@ const addToQuestioneir = (expObj, data, questioneir) => {
   expObj.surveyData[`Q${Qstart + 2}`] = resp.Q2;
 };
 const generateSurvey = (expObj) => {
-  expObj.surveyData.subject = expObj.subject;
+  expObj.surveyData.Subject = expObj.subject;
   expObj.surveyData.procedure = "demographics";
   var survey_trial1 = {
     type: "survey-multi-choice",

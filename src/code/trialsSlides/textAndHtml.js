@@ -4,7 +4,7 @@ const textJson = {
     return gender == "male" ? ":אתה הרגשת" : ":את הרגשת";
   },
   rateLikablility: (name, gender) => {
-    var liked = gender == "male" ? "אהוב" : " אהובה";
+    var liked = gender == "male" ? "חביב" : " חביבה";
     return `?כמה ${liked} ${name}`;
   },
   rateTrustworthiness: (name, gender) => {

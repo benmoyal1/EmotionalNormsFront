@@ -26,6 +26,7 @@ class Experiment extends preExp {
     // cond == -1 ==> extreme
     this.cond =
       this.participantCategory == 2 || this.participantCategory == 4 ? -1 : 1;
+    this.isExtremeCondition = this.cond == -1 ? 1 : 0;
     this.isJew = this.participantCategory <= 2;
     this.participantFlag = this.isJew
       ? "Flag_Israel.jpg"

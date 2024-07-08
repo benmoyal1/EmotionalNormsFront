@@ -45,14 +45,15 @@ var Stage3PresentAverage = function (stageObj, expObj) {
     min: -100,
     on_finish: function () {
       var trialResultObject = {
-        averagePresente: stageObj.average,
+        averagePresented: stageObj.average,
         Subject: expObj.subject,
         gender: expObj.gender,
-        stage: 3,
-        procedure: "JudjementBlockProc",
+        procedure: "Judgment",
+        isJew:expObj.isJew? 1 : 0,
+        isExtremeCondition:expObj.isExtremeCondition,
         isMex: expObj.isMex,
-        Block: expObj.trialIndex++,
-        participantCategory: expObj.participantCategory,
+        trialNum: expObj.trialIndex++,
+        extendedCondition: expObj.participantCategory,
       };
       expObj.experimentData.push(trialResultObject);
     },

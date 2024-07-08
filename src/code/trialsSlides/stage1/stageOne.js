@@ -15,7 +15,7 @@ import { HTMLJson as HtmlJ } from "../textAndHtml.js";
  */
 var firstCondSlide = function (stageObj, expObj, stage) {
   var ASKED_ABOUT_PARTICIPANT = 1;
-  var procedure = stage == 1 ? "trainProc" : "ExpBlocProc";
+  var procedure = stage == 1 ? "Training" : "Learning";
 
   return {
     timeline: [
@@ -47,12 +47,14 @@ var firstCondSlide = function (stageObj, expObj, stage) {
           var trialResultObject = {
             Subject: expObj.subject,
             age: expObj.age,
+            isJew:expObj.isJew? 1 : 0,
+            isExtremeCondition:expObj.isExtremeCondition,
+            imageNum: stageObj.pic_num,
             gender: expObj.gender,
             procedure: procedure,
-            condition: expObj.cond,
             IsYouTrial: ASKED_ABOUT_PARTICIPANT,
-            feedbackValue: trialResponse,
-            Block: expObj.trialIndex++,
+            response: trialResponse,
+            trialNum: expObj.trialIndex++,
             extendedCondition: expObj.participantCategory, // values 1 - 4
           };
           if (stage == 1) {
