@@ -49,11 +49,10 @@ var Stage3PresentAverage = function (stageObj, expObj) {
         Subject: expObj.subject,
         gender: expObj.gender,
         procedure: "Judgment",
-        isJew:expObj.isJew? 1 : 0,
-        isExtremeCondition:expObj.isExtremeCondition,
+        exposedJew:expObj.isJew? 1 : 0,
+        exposedMoreExtreme:expObj.isExtremeCondition,
         isMex: expObj.isMex,
         trialNum: expObj.trialIndex++,
-        extendedCondition: expObj.participantCategory,
       };
       expObj.experimentData.push(trialResultObject);
     },
