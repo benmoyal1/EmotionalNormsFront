@@ -47,15 +47,14 @@ var firstCondSlide = function (stageObj, expObj, stage) {
           var trialResultObject = {
             Subject: expObj.subject,
             age: expObj.age,
-            isJew:expObj.isJew? 1 : 0,
-            isExtremeCondition:expObj.isExtremeCondition,
+            exposedJew:expObj.isJew? 1 : 0,
+            exposedMoreExtreme:expObj.isExtremeCondition,
             imageNum: stageObj.pic_num,
             gender: expObj.gender,
             procedure: procedure,
             IsYouTrial: ASKED_ABOUT_PARTICIPANT,
             response: trialResponse,
             trialNum: expObj.trialIndex++,
-            extendedCondition: expObj.participantCategory, // values 1 - 4
           };
           if (stage == 1) {
             expObj.baselineResponses.push(trialResponse);
