@@ -46,6 +46,8 @@ const addToQuestioneir = (expObj, data, questioneir) => {
 const generateSurvey = (expObj) => {
   expObj.surveyData.Subject = expObj.subject;
   expObj.surveyData.procedure = "demographics";
+  expObj.surveyData.gender = expObj.gender;
+  expObj.surveyData.age = expObj.age;
   var survey_trial1 = {
     type: "survey-multi-choice",
     preamble: "<h6>יש לגלול ולענות על כל השאלות*</h6>",

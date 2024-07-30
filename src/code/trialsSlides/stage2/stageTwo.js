@@ -52,9 +52,8 @@ var otherCond = function (stageObj, expObj) {
           var trialResultObject = {
             Subject: expObj.subject,
             age: expObj.age,
-            isJew: expObj.isJew ? 1 : 0,
-            extendedCondition: expObj.participantCategory,
-            isExtremeCondition: expObj.isExtremeCondition,
+            exposedJew:expObj.isJew? 1 : 0,
+            exposedMoreExtreme:expObj.isExtremeCondition,
             gender: expObj.gender,
             imageNum: stageObj.pic_num,
             procedure: PROCEDURE,
@@ -63,7 +62,6 @@ var otherCond = function (stageObj, expObj) {
             response: trialResponse,
             baseline: expObj.baselineAverage,
             trialNum: expObj.trialIndex++,
-            participantCategory: expObj.participantCategory,
           };
           expObj.experimentData.push(trialResultObject);
         },
