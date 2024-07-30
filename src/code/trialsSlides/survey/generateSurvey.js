@@ -1,5 +1,27 @@
+// const alignHTMLRight = () => {
+//   let html = '<style id="jspsych-survey-multi-choice-css">';
+//   html +=
+//     ".jspsych-survey-multi-choice-question { margin-top: 2em; margin-bottom: 2em; text-align: right; }" + // Align questions to the right
+//     ".jspsych-survey-multi-choice-option { text-align: right; }" + // Align options to the right
+//     ".jspsych-survey-multi-choice-text { direction: rtl; }" + // Set text direction to right-to-left
+//     ".jspsych-survey-multi-choice-text span.required { color: darkred; }" + // Style required indicator
+//     ".jspsych-survey-multi-choice-horizontal .jspsych-survey-multi-choice-text { text-align: center; }" + // Center text in horizontal layout
+//     ".jspsych-survey-multi-choice-horizontal .jspsych-survey-multi-choice-option { display: inline-block; margin-left: 1em; margin-right: 1em; vertical-align: top; }" + // Style options in horizontal layout
+//     "label.jspsych-survey-multi-choice-text input[type='radio'] { margin-right: 1em; }" + // Style radio buttons
+//     ".jspsych-content { max-height: 80vh; overflow-y: scroll; }" + // Set max height and enable vertical scroll
+//     ".jspsych-content::-webkit-scrollbar { width: 8px; }" + // Custom scrollbar width for WebKit browsers (e.g., Chrome, Safari)
+//     ".jspsych-content::-webkit-scrollbar-track { background: #333; }" + // Custom scrollbar track color
+//     ".jspsych-content::-webkit-scrollbar-thumb { background: #555; border-radius: 4px; }" + // Custom scrollbar thumb color and rounded corners
+//     ".jspsych-content::-webkit-scrollbar-thumb:hover { background: #777; }" + // Custom scrollbar thumb hover effect
+//     ".jspsych-content { scrollbar-width: thin; scrollbar-color: #333 #222; }"; // Custom scrollbar styles for IE, Edge, and Firefox
+//   html += "</style>";
+
+//   // Inject the CSS into the document head
+//   document.head.insertAdjacentHTML("beforeend", html);
+//   document.querySelector("#jspsych-survey-multi-choice-next").value = "לחצו כאן";
+// };
 const alignHTMLRight = () => {
-  let html = '<style id="jspsych-survey-multi-choice-css">';
+  let html = '<style id="jspsych-align-css">';
   html +=
     ".jspsych-survey-multi-choice-question { margin-top: 2em; margin-bottom: 2em; text-align: right; }" + // Align questions to the right
     ".jspsych-survey-multi-choice-option { text-align: right; }" + // Align options to the right
@@ -7,7 +29,17 @@ const alignHTMLRight = () => {
     ".jspsych-survey-multi-choice-text span.required { color: darkred; }" + // Style required indicator
     ".jspsych-survey-multi-choice-horizontal .jspsych-survey-multi-choice-text { text-align: center; }" + // Center text in horizontal layout
     ".jspsych-survey-multi-choice-horizontal .jspsych-survey-multi-choice-option { display: inline-block; margin-left: 1em; margin-right: 1em; vertical-align: top; }" + // Style options in horizontal layout
-    "label.jspsych-survey-multi-choice-text input[type='radio'] { margin-right: 1em; }" + // Style radio buttons
+    "label.jspsych-survey-multi-choice-text input[type='radio'] { margin-right: 1em; }"; // Style radio buttons
+  html += "</style>";
+
+  // Inject the CSS into the document head
+  document.head.insertAdjacentHTML("beforeend", html);
+  document.querySelector("#jspsych-survey-multi-choice-next").value =
+    "לחצו כאן";
+};
+const styleScrollbar = () => {
+  let html = '<style id="jspsych-scrollbar-css">';
+  html +=
     ".jspsych-content { max-height: 80vh; overflow-y: scroll; }" + // Set max height and enable vertical scroll
     ".jspsych-content::-webkit-scrollbar { width: 8px; }" + // Custom scrollbar width for WebKit browsers (e.g., Chrome, Safari)
     ".jspsych-content::-webkit-scrollbar-track { background: #333; }" + // Custom scrollbar track color
@@ -18,12 +50,12 @@ const alignHTMLRight = () => {
 
   // Inject the CSS into the document head
   document.head.insertAdjacentHTML("beforeend", html);
-  document.querySelector("#jspsych-survey-multi-choice-next").value = "לחצו כאן";
 };
 
 const deleteScrollBar = () => {
+  console.log("Removing scrollbar styles");
   // Remove the scrollbar styles by ID
-  let styleElement = document.getElementById("jspsych-survey-multi-choice-css");
+  let styleElement = document.getElementById("jspsych-scrollbar-css");
   if (styleElement) {
     styleElement.remove();
   }
@@ -36,6 +68,10 @@ const deleteScrollBar = () => {
   }
 };
 
+const alignRightAndAddScrollbar = () => {
+  alignHTMLRight();
+  styleScrollbar();
+};
 const addToQuestioneir = (expObj, data, questioneir) => {
   const resp = JSON.parse(data.responses);
   const Qstart = questioneir * 3;
@@ -46,8 +82,6 @@ const addToQuestioneir = (expObj, data, questioneir) => {
 const generateSurvey = (expObj) => {
   expObj.surveyData.Subject = expObj.subject;
   expObj.surveyData.procedure = "demographics";
-  expObj.surveyData.gender = expObj.gender;
-  expObj.surveyData.age = expObj.age;
   var survey_trial1 = {
     type: "survey-multi-choice",
     preamble: "<h6>יש לגלול ולענות על כל השאלות*</h6>",
@@ -87,7 +121,7 @@ const generateSurvey = (expObj) => {
       },
     ],
 
-    on_load: alignHTMLRight,
+    on_load: alignRightAndAddScrollbar,
     on_finish: function (data) {
       const questioneir = 0;
       addToQuestioneir(expObj, data, questioneir);
@@ -224,9 +258,7 @@ const generateSurvey = (expObj) => {
     on_finish: function (data) {
       const questioneir = 4;
       addToQuestioneir(expObj, data, questioneir);
-      console.log("A");
       deleteScrollBar();
-
     },
   };
   expObj.experimentData.push(expObj.surveyData);
