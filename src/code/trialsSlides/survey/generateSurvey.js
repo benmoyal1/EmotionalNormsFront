@@ -9,14 +9,33 @@ const alignHTMLRight = () => {
     ".jspsych-survey-multi-choice-horizontal .jspsych-survey-multi-choice-option { display: inline-block; margin-left: 1em; margin-right: 1em; vertical-align: top; }" + // Style options in horizontal layout
     "label.jspsych-survey-multi-choice-text input[type='radio'] { margin-right: 1em; }" + // Style radio buttons
     ".jspsych-content { max-height: 80vh; overflow-y: scroll; }" + // Set max height and enable vertical scroll
-    ".jspsych-content::-webkit-scrollbar { display: none; }" + // Hide scrollbar for WebKit browsers (e.g., Chrome, Safari)
-    ".jspsych-content { -ms-overflow-style: none; scrollbar-width: none; }"; // Hide scrollbar for IE, Edge, and Firefox
+    ".jspsych-content::-webkit-scrollbar { width: 8px; }" + // Custom scrollbar width for WebKit browsers (e.g., Chrome, Safari)
+    ".jspsych-content::-webkit-scrollbar-track { background: #333; }" + // Custom scrollbar track color
+    ".jspsych-content::-webkit-scrollbar-thumb { background: #555; border-radius: 4px; }" + // Custom scrollbar thumb color and rounded corners
+    ".jspsych-content::-webkit-scrollbar-thumb:hover { background: #777; }" + // Custom scrollbar thumb hover effect
+    ".jspsych-content { scrollbar-width: thin; scrollbar-color: #333 #222; }"; // Custom scrollbar styles for IE, Edge, and Firefox
   html += "</style>";
 
   // Inject the CSS into the document head
   document.head.insertAdjacentHTML("beforeend", html);
   document.querySelector("#jspsych-survey-multi-choice-next").value = "לחצו כאן";
 };
+
+const deleteScrollBar = () => {
+  // Remove the scrollbar styles by ID
+  let styleElement = document.getElementById("jspsych-survey-multi-choice-css");
+  if (styleElement) {
+    styleElement.remove();
+  }
+
+  // Optional: If you need to reset any specific overflow properties, you can add them here
+  let contentElement = document.querySelector(".jspsych-content");
+  if (contentElement) {
+    contentElement.style.overflowY = "";
+    contentElement.style.maxHeight = "";
+  }
+};
+
 const addToQuestioneir = (expObj, data, questioneir) => {
   const resp = JSON.parse(data.responses);
   const Qstart = questioneir * 3;
@@ -203,6 +222,9 @@ const generateSurvey = (expObj) => {
     on_finish: function (data) {
       const questioneir = 4;
       addToQuestioneir(expObj, data, questioneir);
+      console.log("A");
+      deleteScrollBar();
+
     },
   };
   expObj.experimentData.push(expObj.surveyData);
