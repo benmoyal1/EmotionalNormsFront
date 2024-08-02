@@ -10,7 +10,6 @@ class Experiment extends preExp {
     this.experimentData = [];
     this.surveyData = {};
     this.initParticipantAttributes(age, gender, kv);
-    this.initDemographicSurvey();
     this.initStage1();
     this.initStage2();
     this.initStage3();
@@ -53,7 +52,9 @@ class Experiment extends preExp {
   initStage3() {
     this.initStage3Instructions(this.gender);
     this.initStage3Trials();
+    this.initDemographicSurvey();
     this.initLastSlide();
+
   }
   dataToServer() {
     sendDataToServer(this);

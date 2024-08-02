@@ -58,7 +58,7 @@ const HTMLJson = {
     `;
   },
   averageResponseStage3: (name) => {
-    return `:התגובה הממוצעת של <b style="font-size: 16px;color: red;"><u>${name}</u></b> הייתה`;
+    return `:התגובה הממוצעת של <b style="font-size: 16px;"><u>${name}</u></b> הייתה`;
   },
   responseAverageStage3: (response, flagPath, average) => {
     return `<div style="margin: calc(25vh) auto 0; width: 70%; text-align: center;">
