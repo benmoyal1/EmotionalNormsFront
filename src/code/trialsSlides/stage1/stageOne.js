@@ -65,7 +65,6 @@ var firstCondSlide = function (stageObj, expObj, stage) {
             trialResultObject["imageAndQ1.Slider1.Value"] = trialResponse;
           }
           expObj.experimentData.push(trialResultObject);
-          console.log(expObj.experimentData);
         },
       },
       feedbackScreen(

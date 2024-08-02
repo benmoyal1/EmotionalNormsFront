@@ -82,6 +82,9 @@ const generateSurvey = (expObj) => {
   var surveyTrial3 = surveyTrial(expObj,SV.Q3Prompt,SV.Q3Ops ,3);
   var surveyTrial4 = surveyTrial(expObj,SV.Q4Prompt,SV.Q4Ops ,4);
   var surveyTrial5 = surveyTrial(expObj,SV.Q5Prompt,SV.Q5Ops ,5);
+  
+  var sanityCheck =  likertTrial(expObj,SV.sanityCheckQu,SV.sanityCheckLabels,15);
+  
   var likertTrial6 = likertTrial(expObj,SV.likertQ6Prompt,SV.likertQ6Labels,6);
   var likertTrial7 = likertTrial(expObj,SV.likertQ7Prompt,SV.likertQ7Labels,7);
   var likertTrial8 = likertTrial(expObj,SV.likertQ8Prompt,SV.likertQ8Labels,8);
@@ -100,6 +103,7 @@ const generateSurvey = (expObj) => {
     surveyTrial3,
     surveyTrial4,
     surveyTrial5,
+    sanityCheck,
     likertTrial6,
     likertTrial7,
     likertTrial8,
