@@ -42,17 +42,17 @@ class Experiment extends preExp {
   }
   initStage1() {
     this.initStage1Instructions(this.gender);
-    this.initStage1Trials();
-    this.initCalculateBaselineFunc();
+    // this.initStage1Trials();
+    // this.initCalculateBaselineFunc();
   }
   initStage2() {
     this.initStage2Instructions(this.gender);
-    this.initStage2Trials();
+    // this.initStage2Trials();
   }
   initStage3() {
     this.initStage3Instructions(this.gender);
-    this.initStage3Trials();
-    this.initDemographicSurvey();
+    // this.initStage3Trials();
+    // this.initDemographicSurvey();
     this.initLastSlide();
 
   }

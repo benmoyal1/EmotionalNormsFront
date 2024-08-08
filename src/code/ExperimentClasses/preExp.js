@@ -1,4 +1,4 @@
-import { lastSlide, generateSlides } from "../trialsSlides/instructions/instruction_slides.js";
+import { lastSlide, generateSlides, generateWelcomeSlides } from "../trialsSlides/instructions/instruction_slides.js";
 import { conf } from "./timeTable.js";
 import {stage3SinglePerson} from "../trialsSlides/stage3/stageThree.js"
 import {
@@ -28,9 +28,8 @@ class preExp {
     this.timeline.push(...generateSurvey(this));
   }
   initStage1Instructions(gender) {
-    const openeing = 0;
     const stage1 = 1;
-    this.timeline.push(...generateSlides(openeing, gender));
+    this.timeline.push(...generateWelcomeSlides());
     this.timeline.push(...generateSlides(stage1, gender));
   }
   initStage1Trials() {

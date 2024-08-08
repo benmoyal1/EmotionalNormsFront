@@ -4,7 +4,7 @@ import { fullScreenAllBrowsers } from "./htmlSetters/focusAndScreen.js";
 
 
 // var kv = await getParticipantNum();
-// var exp = new Experiment(23, 'male', kv);
+// var exp = new Experiment(23, 'female', kv);
 // exp.startExp();
 
 document
