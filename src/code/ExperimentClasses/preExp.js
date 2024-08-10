@@ -1,4 +1,4 @@
-import { lastSlide, generateSlides, generateWelcomeSlides } from "../trialsSlides/instructions/instruction_slides.js";
+import { generateLastSlide, generateSlides, generateWelcomeSlides } from "../trialsSlides/instructions/instruction_slides.js";
 import { conf } from "./timeTable.js";
 import {stage3SinglePerson} from "../trialsSlides/stage3/stageThree.js"
 import {
@@ -107,7 +107,7 @@ class preExp {
     this.timeline.push(...jsPsych.randomization.repeat(trialsBeforeShuffle,1));
   }
   initLastSlide() {
-    this.timeline.push(lastSlide(this));
+    this.timeline.push(generateLastSlide(this));
   }
 }
 

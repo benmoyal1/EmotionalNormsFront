@@ -78,4 +78,4 @@ var generateLastSlide = (expObj) => {
   };
 };
 
-export { generateSlides,generateWelcomeSlides, generateLastSlide as lastSlide };
+export { generateSlides,generateWelcomeSlides, generateLastSlide };
