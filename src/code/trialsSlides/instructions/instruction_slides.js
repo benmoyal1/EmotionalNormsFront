@@ -72,7 +72,7 @@ var generateLastSlide = (expObj) => {
     choices: null,
     response_ends_trial: false,
     on_load: function () {
-    adjustCSSForInstTrials()
+      adjustCSSForInstTrials()
       expObj.dataToServer();
     },
   };
