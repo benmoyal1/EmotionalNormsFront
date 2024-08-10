@@ -1,4 +1,6 @@
 async function sendDataToServer(expObj) {
+    console.log("sending")
+
     const now = new Date();
     const formatTime = num => String(num).padStart(2, '0');
     const currentTime = `${formatTime(now.getHours())}-${formatTime(now.getMinutes())}-${formatTime(now.getSeconds())}`;    
