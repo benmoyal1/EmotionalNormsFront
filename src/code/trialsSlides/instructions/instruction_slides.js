@@ -37,32 +37,11 @@ const generateWelcomeSlides = () => {
 
   return [locked, withCont];
 };
-// const generateSlides = (stage, gender) => {
-//   const adjusted_stage = stage + 1;
-//   const stimulusLockedHtml = instJson[`instructions_${adjusted_stage}_stage_${stage}_${gender}`];
-//   const stimulusWithContHtml = instJson[`instructions_${adjusted_stage}_stage_${stage}_${gender}_continue`];
-//   const locked = {
-//     type: "html-keyboard-response",
-//     stimulus: stimulusLockedHtml,
-//     choices: null,
-//     response_ends_trial: false,
-//     trial_duration: conf.stage1InstHold,
-//   };
 
-//   const withCont = {
-//     type: "html-keyboard-response",
-//     stimulus: stimulusWithContHtml,
-//     choices: ["space"],
-//   };
-
-//   return [locked, withCont];
-// };
 const generateSlides = (stage, gender) => {
   const adjusted_stage = stage + 1;
   const stimulusLockedHtml = instJson[`instructions_${adjusted_stage}_stage_${stage}_${gender}`];
   const stimulusWithContHtml = instJson[`instructions_${adjusted_stage}_stage_${stage}_${gender}_continue`];
-
-  
 
   const locked = {
     type: "html-keyboard-response",
@@ -94,7 +73,7 @@ var generateLastSlide = (expObj) => {
     response_ends_trial: false,
     on_load: function () {
     adjustCSSForInstTrials()
-      // expObj.dataToServer();
+      expObj.dataToServer();
     },
   };
 };

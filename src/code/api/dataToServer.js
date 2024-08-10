@@ -18,7 +18,7 @@ async function sendDataToServer(expObj) {
                 'gender':expObj.gender,
                 'path':pathExample})
         }); 
-        const result = await response.json(); // Parse response as JSON
+        const result = await response.json(); 
         return result;
     } catch (error) {
         console.error('Error:', error);
