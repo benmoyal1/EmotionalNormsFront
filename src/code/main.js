@@ -15,7 +15,6 @@ document
     if (15 <= parseInt(age) && parseInt(age) < 85) {
       fullScreenAllBrowsers(); // prevents the default ecent behavior and enters full screen
       var gender = document.querySelector('input[name="gender"]:checked').value;
-      console.log("udp");
       var kv = await getParticipantNum();
       var exp = new Experiment(age, gender, kv);
       exp.startExp();
