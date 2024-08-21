@@ -3,9 +3,9 @@ import { getParticipantNum } from "./api/dataFromServer.js";
 import { fullScreenAllBrowsers } from "./htmlSetters/focusAndScreen.js";
 
 
-// var kv = await getParticipantNum();
-// var exp = new Experiment(23, 'female', kv);
-// exp.startExp();
+var kv = await getParticipantNum();
+var exp = new Experiment(23, 'male', kv);
+exp.startExp();
 
 document
   .getElementById("genderForm")
@@ -19,5 +19,7 @@ document
       var exp = new Experiment(age, gender, kv);
       exp.startExp();
       
+    }else{
+      alert("נא להקליד את גילכם , מספר בין 18 ל 85");
     }
   });

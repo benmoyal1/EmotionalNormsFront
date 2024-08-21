@@ -1,5 +1,5 @@
-const FASTMODE = false;
-const MINSLIDES = false;
+const FASTMODE = true;
+const MINSLIDES = true;
 
 const expConfigure = {
   fastmode: FASTMODE,
@@ -8,7 +8,7 @@ const expConfigure = {
   stage1InstHold: FASTMODE ? 1000 : 20000,
   stage2InstHold: FASTMODE ? 1000 : 20000,
   stage3InstHold: FASTMODE ? 1000 : 20000,
-  fixationHold: FASTMODE ? 0 : 4000,
+  fixationHold: FASTMODE ? 0 : 500,
   stimulousPresentation: FASTMODE ? 0 : 2000,
   responsePresentation: FASTMODE ? 0 : 4000,
   nameAveragePresentation: FASTMODE ? 0 : 5000,

@@ -19,7 +19,7 @@ var firstCondSlide = function (stageObj, expObj, stage) {
 
   return {
     timeline: [
-      fixation,
+      fixation, // the fixation trial
       {
         type: "html-slider-response-modified",
         stimulus: HtmlJ.stimulusImg(stageObj.pic_num),

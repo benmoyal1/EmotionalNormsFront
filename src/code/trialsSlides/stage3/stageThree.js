@@ -90,7 +90,7 @@ var Stage3RateThisPerson = function (
         require_response: true,
       },
     ],
-    labels: ["בכלל לא", "מאוד"],
+    labels: HtmlJ.scaleForStage3,
     max: 100,
     min: 0,
     slider_dir: "ltr",

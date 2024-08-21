@@ -20,7 +20,7 @@ var feedbackScreen = function(picNum,gender,text){
                         duration: 500
                     },
                     {
-                        text: '<div style="text-align: center; color: red;">' +
+                        text: '<div style="text-align: center; color: red; font-size: 24px;">' +
                         '<div>' + text + '</div>' +
                         '<div>'+ trialResponse + '</div>' +
                       '</div>',
@@ -33,7 +33,7 @@ var feedbackScreen = function(picNum,gender,text){
                         duration:conf.responsePresentation
                     },
                     {
-                        text: '<div style="text-align: center; color: red;">' +
+                        text: '<div style="text-align: center; color: red; font-size: 24px;">' +
                         '<div>' + text + '</div>' +
                         '<div>'+ trialResponse + '</div>' +
                       '</div>',

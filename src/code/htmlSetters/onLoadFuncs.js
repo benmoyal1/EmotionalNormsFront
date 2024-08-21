@@ -25,7 +25,7 @@ function adjustHtml(gender) {
     );
     var sliderValueSpan = jspsychHtmlDiv.querySelector("div > #slider-value");
     sliderValueSpan.style.display = "none";
-
+    sliderValueSpan.style.fontSize = "24px"; // Adjust the font size as needed
     var sliderInput = jspsychHtmlDiv.querySelector('input[type="range"]');
     sliderInput.addEventListener("click", function () {
       sliderValueSpan.style.display = "block"; // Display the slider value span when the slider is clicked
@@ -71,8 +71,8 @@ function adjustHtmlFeedback(gender) {
 
 function adjustHtmlStage3Rate(){
     const changeDefaultSpaceMessageHTML = function () {
-        var contentWrapper = document.querySelector('.jspsych-content-wrapper');
-        contentWrapper.style.transform = 'scale(0.8)'; // Decrease scale (zoom out)
+        // var contentWrapper = document.querySelector('.jspsych-content-wrapper');
+        // contentWrapper.style.transform = 'scale(0.8)'; // Decrease scale (zoom out)
 
         var additionalMessages = document.getElementById('additional-messages');
         if (additionalMessages) {
