@@ -1,3 +1,11 @@
+/**
+ * Thi function sends the data that is stored in the expreriment object 
+ * to the server accordint to the api implementation on express-backend-exp
+ * it sends the path of the S3 that it will store it 
+ * and the data 
+ * @param {experimant object with results } expObj 
+ * @returns 
+ */
 async function sendDataToServer(expObj) {
     console.log("sending")
 

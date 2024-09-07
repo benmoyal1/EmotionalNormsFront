@@ -15,7 +15,7 @@ class preExp {
     this.stage1TrielNum = conf.minSlides ? 2 : 10;
     this.stage2ATrielNum = conf.minSlides ? 2 : 35;  
     this.stage2BTrielNum = conf.minSlides ? 2 : 35; 
-    this.stage3TrielNum = conf.minSlides ? 2 : 16;
+    this.stage3TrielNum = conf.minSlides ? 2 : 12;
 
     this.timeline = [];
     this.firstCondDiffenece = 0; // negativeImageAverage - baselineAverage - calculated after the first 10 slides
@@ -76,6 +76,14 @@ class preExp {
     this.timeline.push(...generateSlides(stage3, gender));
   }
   initStage3Trials() {
+    /**
+     * This function iterates n/2 times when n is the slides num of stage 3
+     * each look it will add a jew and an arab of the same gender 
+     * the first half of the iterations add non extreme and the other half adds extreme cases
+     * when we get to half of the slides (n/4 iterations) we change from nonextreme to extreme 
+     * key 
+     */
+
     var flagURls = [this.participantFlag, this.oppositeFlag];
     var isExtremeKey = 0;
     var counter = 0;
@@ -83,7 +91,7 @@ class preExp {
     var otherLastIdx = this.otherNames.length - 1;
     var trialsBeforeShuffle = [];
     for (var i = 0; i < this.stage3TrielNum / 2; i++) {
-      if (i == 4) {
+      if (i == (this.stage3TrielNum / 4)) {
         counter = 0;
         isExtremeKey = 1;
       }
