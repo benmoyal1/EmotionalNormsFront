@@ -1,4 +1,4 @@
-const FASTMODE = true;
+const FASTMODE = false;
 const MINSLIDES = false;
 
 const expConfigure = {
