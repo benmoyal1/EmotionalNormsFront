@@ -47,8 +47,8 @@ var firstCondSlide = function (stageObj, expObj, stage) {
           var trialResultObject = {
             Subject: expObj.subject,
             age: expObj.age,
-            exposedJew:expObj.isJew? 1 : 0,
-            exposedMoreExtreme:expObj.isExtremeCondition,
+            isParticipantJew: expObj.isJew ? 1 : 0,
+            isParticipantMex: expObj.isExtremeCondition,
             imageNum: stageObj.pic_num,
             gender: expObj.gender,
             procedure: procedure,

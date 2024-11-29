@@ -12,9 +12,9 @@ const expConfigure = {
   stimulousPresentation: FASTMODE ? 0 : 2000,
   responsePresentation: FASTMODE ? 0 : 4000,
   nameAveragePresentation: FASTMODE ? 0 : 5000,
-  rateThisPersonHold :FASTMODE ? 0 : 20,
-  preTrialBreak:5,
+  rateThisPersonHold: FASTMODE ? 0 : 20,
+  preTrialBreak: 5,
 };
 export { expConfigure as conf };
 
-// 
+//

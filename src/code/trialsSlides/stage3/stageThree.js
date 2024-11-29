@@ -44,16 +44,20 @@ var Stage3PresentAverage = function (stageObj, expObj) {
     max: 100,
     min: -100,
     on_finish: function () {
+      console.log(stageObj.isCharacterMex ? 1 : 0);
+      console.log(stageObj.isCharacterJew ? 1 : 0);
       var trialResultObject = {
         averagePresented: stageObj.average,
         Subject: expObj.subject,
         gender: expObj.gender,
         procedure: "Judgment",
-        exposedJew:expObj.isJew? 1 : 0,
-        exposedMoreExtreme:expObj.isExtremeCondition,
-        isMex: expObj.isMex,
+        isParticipantJew: expObj.isJew ? 1 : 0,
+        isParticipantMex: expObj.isExtremeCondition,
+        isCharacterMex: stageObj.isCharacterMex ? 1 : 0,
+        isCharacterJew: stageObj.isCharacterJew ? 1 : 0,
         trialNum: expObj.trialIndex++,
       };
+      console.log(trialResultObject);
       expObj.experimentData.push(trialResultObject);
     },
   };

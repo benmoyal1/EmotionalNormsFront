@@ -52,8 +52,8 @@ var otherCond = function (stageObj, expObj) {
           var trialResultObject = {
             Subject: expObj.subject,
             age: expObj.age,
-            exposedJew:expObj.isJew? 1 : 0,
-            exposedMoreExtreme:expObj.isExtremeCondition,
+            isParticipantJew: expObj.isJew ? 1 : 0,
+            isParticipantMex: expObj.isExtremeCondition,
             gender: expObj.gender,
             imageNum: stageObj.pic_num,
             procedure: PROCEDURE,

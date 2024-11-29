@@ -1,6 +1,10 @@
-import { generateLastSlide, generateSlides, generateWelcomeSlides } from "../trialsSlides/instructions/instruction_slides.js";
+import {
+  generateLastSlide,
+  generateSlides,
+  generateWelcomeSlides,
+} from "../trialsSlides/instructions/instruction_slides.js";
 import { conf } from "./timeTable.js";
-import {stage3SinglePerson} from "../trialsSlides/stage3/stageThree.js"
+import { stage3SinglePerson } from "../trialsSlides/stage3/stageThree.js";
 import {
   responsesJson,
   baselineImagesObject,
@@ -9,12 +13,12 @@ import {
 import { firstCondSlide } from "../trialsSlides/stage1/stageOne.js";
 import { otherCond } from "../trialsSlides/stage2/stageTwo.js";
 import { calculateBaselineAndDifferece } from "../trialsSlides/stage1/calcBaseline.js";
-import {generateSurvey} from "../trialsSlides/survey/generateSurvey.js";
+import { generateSurvey } from "../trialsSlides/survey/generateSurvey.js";
 class preExp {
   constructor() {
     this.stage1TrielNum = conf.minSlides ? 2 : 10;
-    this.stage2ATrielNum = conf.minSlides ? 2 : 35;  
-    this.stage2BTrielNum = conf.minSlides ? 2 : 35; 
+    this.stage2ATrielNum = conf.minSlides ? 2 : 35;
+    this.stage2BTrielNum = conf.minSlides ? 2 : 35;
     this.stage3TrielNum = conf.minSlides ? 2 : 12;
 
     this.timeline = [];
@@ -24,7 +28,7 @@ class preExp {
     this.condition = 0;
     this.trialIndex = 1;
   }
-  initDemographicSurvey(){
+  initDemographicSurvey() {
     this.timeline.push(...generateSurvey(this));
   }
   initStage1Instructions(gender) {
@@ -78,10 +82,10 @@ class preExp {
   initStage3Trials() {
     /**
      * This function iterates n/2 times when n is the slides num of stage 3
-     * each look it will add a jew and an arab of the same gender 
+     * each look it will add a jew and an arab of the same gender
      * the first half of the iterations add non extreme and the other half adds extreme cases
-     * when we get to half of the slides (n/4 iterations) we change from nonextreme to extreme 
-     * key 
+     * when we get to half of the slides (n/4 iterations) we change from nonextreme to extreme
+     * key
      */
 
     var flagURls = [this.participantFlag, this.oppositeFlag];
@@ -91,19 +95,21 @@ class preExp {
     var otherLastIdx = this.otherNames.length - 1;
     var trialsBeforeShuffle = [];
     for (var i = 0; i < this.stage3TrielNum / 2; i++) {
-      if (i == (this.stage3TrielNum / 4)) {
+      if (i == this.stage3TrielNum / 4) {
         counter = 0;
         isExtremeKey = 1;
       }
       var stageObjSelf = {
         name: this.names[namesLastIdx - i],
-        isMex: responsesJson[isExtremeKey][counter * 2][1],
+        isCharacterMex: responsesJson[isExtremeKey][counter * 2][1],
+        isCharacterJew: this.isJew,
         average: responsesJson[isExtremeKey][counter * 2][0],
         flag: flagURls[0],
       };
       var stageObjOther = {
         name: this.otherNames[otherLastIdx - i],
-        isMex: responsesJson[isExtremeKey][counter * 2 + 1][1],
+        isCharacterMex: responsesJson[isExtremeKey][counter * 2 + 1][1],
+        isCharacterJew: this.isJew ? 0 : 1,
         average: responsesJson[isExtremeKey][counter * 2 + 1][0],
         flag: flagURls[1],
       };
@@ -112,7 +118,7 @@ class preExp {
         stage3SinglePerson(stageObjOther, this)
       );
     }
-    this.timeline.push(...jsPsych.randomization.repeat(trialsBeforeShuffle,1));
+    this.timeline.push(...jsPsych.randomization.repeat(trialsBeforeShuffle, 1));
   }
   initLastSlide() {
     this.timeline.push(generateLastSlide(this));

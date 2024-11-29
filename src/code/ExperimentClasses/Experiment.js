@@ -54,7 +54,6 @@ class Experiment extends preExp {
     this.initStage3Trials();
     this.initDemographicSurvey();
     this.initLastSlide();
-
   }
   dataToServer() {
     sendDataToServer(this);
