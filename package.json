@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "deploy": "git add . && git commit -m \" prod\" && git push"
+  },
   "dependencies": {
     "@vercel/kv": "^1.0.1",
     "aws-sdk": "^2.1605.0",
