@@ -1,6 +1,6 @@
 const FASTMODE = true;
 const MINSLIDES = true;
-
+console.log("IS FAST MODE");
 //
 const expConfigure = {
   fastmode: FASTMODE,
