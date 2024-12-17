@@ -1,4 +1,4 @@
-const FASTMODE = false;
+const FASTMODE = true;
 const MINSLIDES = false;
 console.log("Updated 9/12 17:10");
 
