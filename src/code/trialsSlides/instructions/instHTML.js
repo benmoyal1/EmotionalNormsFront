@@ -200,14 +200,14 @@ const instJsonHTML = {
   <div style="background-color: black; display: flex; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 24px; text-align: center;">
             <br>.המטלה ההסתיימה<br>  
             <br>-אנא שלחי צילום מסך של חלון זה ל </br>
-            <br>mai-elfassi@mail.huji.ac.il</br>
+            <br>Mai.elfassi@mail.HUJI.ac.il</br>
             <br>.ועדכני שסיימת</br>
         </div>`,
   instructions_5_ending_male: `
   <div style="background-color: black; display: flex; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 24px; text-align: center;">
             <br>.המטלה ההסתיימה<br>  
             <br>-אנא שלח צילום מסך של חלון זה ל </br>
-            <br>mai-elfassi@mail.huji.ac.il</br>
+            <br>Mai.elfassi@mail.HUJI.ac.il</br>
             <br>.ועדכן שסיימת</br>
         </div>`,
 };
