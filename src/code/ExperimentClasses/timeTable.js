@@ -1,5 +1,5 @@
-const FASTMODE = true;
-const MINSLIDES = true;
+const FASTMODE = false;
+const MINSLIDES = false;
 console.log("Updated 17/12");
 
 const expConfigure = {

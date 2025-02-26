@@ -30,7 +30,7 @@ async function sendDataToServer(expObj) {
         data: expObj.experimentData,
         Subject: expObj.subject,
         gender: expObj.gender,
-        path: pathExample,
+        path: path,
       }),
     });
     const result = await response.json();
