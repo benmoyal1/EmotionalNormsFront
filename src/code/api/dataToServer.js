@@ -18,7 +18,7 @@ async function sendDataToServer(expObj) {
   const pathExample = `example/${expObj.gender}/exp_${expObj.subject}_${currentTime}.csv`;
 
   try {
-    const devUrl = "http://localhost:3000/";
+    const devUrl = "http://localhost:3000/data/sendDataToS3";
     const serverUrl =
       "https://express-backend-exp.vercel.app/data/sendDataToS3";
     const response = await fetch(serverUrl, {
@@ -34,6 +34,8 @@ async function sendDataToServer(expObj) {
       }),
     });
     const result = await response.json();
+    console.log("result");
+    console.log(result);
     return result;
   } catch (error) {
     console.error("Error:", error);

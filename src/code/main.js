@@ -16,9 +16,9 @@ document
       var gender = document.querySelector('input[name="gender"]:checked').value;
       var kv = await getParticipantNum();
       var exp = new Experiment(age, gender, kv);
-      alert("הניסוי אינו זמין כעת, בבקשה נסו מאוחר יותר ");
+      // alert("הניסוי אינו זמין כעת, בבקשה נסו מאוחר יותר ");
 
-      // exp.startExp();
+      exp.startExp();
     } else {
       alert("נא להקליד את גילכם , מספר בין 18 ל 85");
     }
